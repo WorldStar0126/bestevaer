@@ -131,6 +131,19 @@ svg {
     overflow: visible;
 }
 
+.text-white{
+    color: $color-white;
+    a{
+        color: $color-white;
+        text-decoration: underline;
+    }
+}
+
+.mailchimp-status{
+    padding: 20px;
+    color: $color-white;
+}
+
 @include mq-wide {
     html {
         font-size: $base-size * 1px;

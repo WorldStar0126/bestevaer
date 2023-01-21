@@ -12,7 +12,7 @@ import InputRounded from 'src/components/inputs/input-rounded/InputRounded';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 const CustomForm = ({ status, message, onValidated }) => {
-    let email, name;
+    let email, name, tag;
     const [validate, setValidate] = useState("");
     const submit = () => {
       if(!name.value){
@@ -34,7 +34,8 @@ const CustomForm = ({ status, message, onValidated }) => {
       email.value.indexOf("@") > -1 &&
       onValidated({
         EMAIL: email.value,
-        NAME: name.value
+        FNAME: name.value,
+        tags: tag.value
       });
     }
 
@@ -46,7 +47,7 @@ const CustomForm = ({ status, message, onValidated }) => {
                         aria-label="Name"
                         placeholder="First Name"
                         id="fieldName"
-                        name="NAME"
+                        name="FNAME"
                         ref={node => (name = node)}
                         required={true}
                     />
@@ -67,8 +68,22 @@ const CustomForm = ({ status, message, onValidated }) => {
                 </InputRounded>
 
                 <InputRounded className={styles.input}>
+                    <input
+                        className="js-cm-email-input qa-input-tag"
+                        autoComplete="tag"
+                        aria-label="tag"
+                        id="fieldTag"
+                        type="hidden"
+                        name="tags"
+                        value="7349358"
+                        ref={node => (tag = node)}
+                    />
+                </InputRounded>
+
+                <InputRounded className={styles.input}>
                     <label htmlFor="cm-privacy-consent" className='text-white'>
-                        By clicking the subscribe button, I consent to having KM Yachtbuilders store my submitted information for marketing purposes. <Link href="https://www.bestevaer.com/privacy-policy" className='text-white' target="_blank">Our privacy policy.</Link>
+                        By clicking the subscribe button, I consent to having KM Yachtbuilders store my submitted information for marketing purposes.
+                        <Link href="https://www.bestevaer.com/privacy-policy" className='text-white' target="_blank">Our privacy policy.</Link>
                     </label>
                 </InputRounded>
                

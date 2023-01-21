@@ -133,7 +133,9 @@ svg {
 
 .text-white{
     color: $color-white;
+    padding-left: 0px;
     a{
+        padding-left: 0px;
         color: $color-white;
         text-decoration: underline;
     }
